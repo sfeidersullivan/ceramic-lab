@@ -1,0 +1,1 @@
+export const pieces = state => state.library.pieces;

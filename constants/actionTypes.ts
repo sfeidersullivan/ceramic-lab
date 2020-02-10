@@ -1,0 +1,1 @@
+export const ADD_NEW_PIECE = 'ADD_NEW_PIECE';
