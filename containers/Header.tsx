@@ -24,12 +24,14 @@ const Header = ({ children, addPiece }) => (
         </Button>
       </Right>
     </NBHeader>
-    {children}
+    {/* {children} */}
   </Container>
 );
 
 const styles = StyleSheet.create({
   header: {
+    // flex: 1,
+    // width: '100%',
     backgroundColor: 'darkslategray',
   },
   headerText: {

@@ -14,7 +14,7 @@ interface Item {
 };
 
 const Library = ({ addPiece, pieces }) => (
-  <Header>
+  // <Header>
     <FlatList
       columnWrapperStyle={{ flex: 1, flexGrow: 1, justifyContent: 'center'}}
       numColumns={2}
@@ -25,8 +25,12 @@ const Library = ({ addPiece, pieces }) => (
       keyExtractor={({ id }: Item) => `${id}`}
       ListEmptyComponent={() => <EmptyListPlaceholder onAdd={() => addPiece({ id: 1 })} />}
     />
-  </Header>
+  // </Header>
 );
+
+// Library.navigationOptions = {
+//   header: <Header/>
+// }
 
 const styles = StyleSheet.create({
   container: {
