@@ -1,0 +1,2 @@
+export const PAGE_LIBRARY = 'PAGE_LIBRARY';
+export const PAGE_EDIT_PIECE = 'PAGE_EDIT_PIECE';

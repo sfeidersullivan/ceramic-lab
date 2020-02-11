@@ -7,4 +7,6 @@ const HeaderHOC = Component => {
   });
 
   return Component;
-}
+};
+
+export default HeaderHOC;

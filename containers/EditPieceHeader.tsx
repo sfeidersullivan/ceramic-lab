@@ -5,22 +5,27 @@ import { Button, Icon } from 'native-base';
 import { addPiece } from '../actions';
 import AppHeader from './AppHeader';
 
-const Header = ({ addPiece, goBack, goToEditPiece }) => {
+const EditPieceHeader = ({ addPiece, goBack, goToLibrary }) => {
+  const onAddPiece = () => {
+    goToLibrary();
+    addPiece({});
+  };
+
   return (
     <AppHeader
       left={
         <Button transparent onPress={goBack}>
-          <Icon name='flask' />
+          <Icon name='close' />
         </Button>
       }
       title="Ceramic Lab"
       right={
-        <Button transparent onPress={goToEditPiece}>
-          <Icon name='add' />
+        <Button transparent onPress={onAddPiece}>
+          <Icon name='save' />
         </Button>
       }
     />
   );
 }
 
-export default connect(null, { addPiece })(Header);
+export default connect(null, { addPiece })(EditPieceHeader);

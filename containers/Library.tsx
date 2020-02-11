@@ -1,8 +1,7 @@
 import React from 'react';
-import { StyleSheet, FlatList } from 'react-native';
+import { StyleSheet, FlatList, View } from 'react-native';
 import { connect } from 'react-redux'
 
-import Header from './Header';
 import Card from '../components/Card';
 import EmptyListPlaceholder from '../components/EmptyListPlaceholder';
 import { pieces } from '../selectors';
@@ -14,8 +13,9 @@ interface Item {
 };
 
 const Library = ({ addPiece, pieces }) => (
-  // <Header>
+  <View style={{ flex: 1 }}>
     <FlatList
+      // style={{ flex: 1 }}
       columnWrapperStyle={{ flex: 1, flexGrow: 1, justifyContent: 'center'}}
       numColumns={2}
       renderItem={({ item: { title } }: { item: Item }) => (
@@ -25,12 +25,8 @@ const Library = ({ addPiece, pieces }) => (
       keyExtractor={({ id }: Item) => `${id}`}
       ListEmptyComponent={() => <EmptyListPlaceholder onAdd={() => addPiece({ id: 1 })} />}
     />
-  // </Header>
+  </View>
 );
-
-// Library.navigationOptions = {
-//   header: <Header/>
-// }
 
 const styles = StyleSheet.create({
   container: {
