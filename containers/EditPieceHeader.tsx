@@ -2,30 +2,34 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Button, Icon } from 'native-base';
 
-import { addPiece } from '../actions';
-import AppHeader from './AppHeader';
+import { upsertPiece } from '../actions';
+import AppHeader from '../components/AppHeader';
 
-const EditPieceHeader = ({ addPiece, goBack, goToLibrary }) => {
+const EditPieceHeader = ({ upsertPiece, goBack, goToLibrary, editPiece }) => {
   const onAddPiece = () => {
+    upsertPiece(editPiece);
     goToLibrary();
-    addPiece({});
   };
 
   return (
     <AppHeader
       left={
         <Button transparent onPress={goBack}>
-          <Icon name='close' />
+          <Icon name='close' style={{ color: 'dimgray' }} />
         </Button>
       }
-      title="Ceramic Lab"
+      title="Create piece"
       right={
         <Button transparent onPress={onAddPiece}>
-          <Icon name='save' />
+          <Icon name='save' style={{ color: 'dimgray' }} />
         </Button>
       }
     />
   );
-}
+};
 
-export default connect(null, { addPiece })(EditPieceHeader);
+const mapStateToProps = state => ({
+  editPiece: state.library.editPiece,
+});
+
+export default connect(mapStateToProps, { upsertPiece })(EditPieceHeader);

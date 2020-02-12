@@ -3,24 +3,24 @@ import { connect } from 'react-redux';
 import { Button, Icon } from 'native-base';
 
 import { addPiece } from '../actions';
-import AppHeader from './AppHeader';
+import AppHeader from '../components/AppHeader';
 
-const Header = ({ addPiece, goBack, goToEditPiece }) => {
+const LibraryHeader = ({ addPiece, goBack, goToEditPiece }) => {
   return (
     <AppHeader
       left={
         <Button transparent onPress={goBack}>
-          <Icon name='flask' />
+          <Icon name='flask' style={{ color: 'dimgray' }} />
         </Button>
       }
-      title="Ceramic Lab"
+      // title="Ceramic Lab"
       right={
         <Button transparent onPress={goToEditPiece}>
-          <Icon name='add' />
+          <Icon name='add' style={{ color: 'dimgray' }} />
         </Button>
       }
     />
   );
 }
 
-export default connect(null, { addPiece })(Header);
+export default connect(null, { addPiece })(LibraryHeader);

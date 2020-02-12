@@ -8,7 +8,7 @@ import { Provider } from 'react-redux'
 import reducer from './reducers';
 import Library from './containers/Library';
 import EditPiece from './containers/EditPiece';
-import Header from './containers/Header';
+import Header from './containers/LibraryHeader';
 import EditPieceHeader from './containers/EditPieceHeader';
 import { PAGE_EDIT_PIECE, PAGE_LIBRARY } from './constants/pages';
 
@@ -33,7 +33,11 @@ export default function App() {
         >
           <Stack.Screen
             name={PAGE_LIBRARY}
-            component={Library}
+            component={({ scene, previous, navigation }) => (
+              <Library
+                goToEditPiece={() => navigation.navigate(PAGE_EDIT_PIECE)}
+              />
+            )}
           />
           <Stack.Screen
             name={PAGE_EDIT_PIECE}

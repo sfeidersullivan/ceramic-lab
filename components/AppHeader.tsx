@@ -4,7 +4,10 @@ import {
   Container, Header, Body, Title, Left, Right,
 } from 'native-base';
 
-const AppHeader = ({ left, title, right }) => (
+const AppHeader = (
+  { left, title = 'Ceramic Lab', right }:
+  { left: any, title?: string, right: any }
+) => (
   <Container>
     <Header style={styles.header} >
       { left && 
@@ -28,11 +31,18 @@ const AppHeader = ({ left, title, right }) => (
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: 'darkslategray',
+    backgroundColor: 'white',
+    borderRadius: 10,
+    margin: 5,
+    // backgroundColor: 'darkslategray',
+    shadowOffset: {  width: 0,  height: 2,  },
+    shadowColor: 'black',
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
   },
   headerText: {
     // fontFamily: 'Gotham',
-    color: 'white',
+    color: 'black',
   },
 });
 

@@ -15,7 +15,7 @@ const FormSection = ({ iconName, children }) => (
 );
 
 const EditPiece = () => (
-  <View>
+  <View style={styles.container}>
     <View style={styles.addImageContainer}>
       <TouchableOpacity style={styles.addImageButton}>
         <Icon style={styles.addImageIcon} name="image" />
@@ -64,8 +64,11 @@ const EditPiece = () => (
 );
 
 const styles = StyleSheet.create({
-  addImageContainer: {
+  container: {
     flex: 1,
+    backgroundColor: 'white',
+  },
+  addImageContainer: {
     padding: 20,
     flexDirection: 'row',
     justifyContent: 'center',
