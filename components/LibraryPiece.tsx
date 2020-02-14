@@ -7,14 +7,14 @@ import {
 
 import Card from './Card';
 
-const LibraryPiece = ({ title }) => (
+const LibraryPiece = ({ name, id }) => (
   <Card>
     <CardItem style={{ borderRadius: 10 }}>
       <Left>
         {/* <Thumbnail source={require('./assets/test-icon.png')} /> */}
         <Body>
-          <Text>{title}</Text>
-          <Text note>Seamus</Text>
+          <Text>{name}</Text>
+          <Text note>{id}</Text>
         </Body>
       </Left>
     </CardItem>

@@ -6,24 +6,32 @@ import EmptyListPlaceholder from '../components/EmptyListPlaceholder';
 
 interface Item {
   id: number,
-  title: string,
+  name: string,
 };
 
-const Library = ({ addPiece, pieces }) => (
+const RenderItem = ({ item: { id, name } }: { item: Item }) => (
+  <LibraryPiece id={id} name={name} />
+);
+
+const Library = ({ goToEditPiece, pieces }) => (
   <FlatList
-    columnWrapperStyle={{ flex: 1, flexGrow: 1, justifyContent: 'center'}}
+    columnWrapperStyle={styles.columnWrapper}
     numColumns={2}
-    renderItem={({ item: { title } }: { item: Item }) => (
-      <LibraryPiece title={title} />
-    )}
+    renderItem={RenderItem}
     data={pieces}
     keyExtractor={({ id }: Item) => `${id}`}
-    ListEmptyComponent={() => <EmptyListPlaceholder onAdd={() => addPiece({ id: 1 })} />}
+    ListEmptyComponent={() => (
+      <EmptyListPlaceholder onAdd={goToEditPiece} />
+    )}
   />
 );
 
 const styles = StyleSheet.create({
-
+  columnWrapper: {
+    flex: 1,
+    flexGrow: 1,
+    justifyContent: 'center',
+  },
 });
 
 export default Library;

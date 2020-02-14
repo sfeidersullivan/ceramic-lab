@@ -1,2 +1,3 @@
-export const ADD_NEW_PIECE = 'ADD_NEW_PIECE';
 export const UPSERT_PIECE = 'UPSERT_PIECE';
+export const SET_PIECE_NAME = 'SET_PIECE_NAME';
+export const RESET_EDIT_PIECE = 'RESET_EDIT_PIECE';

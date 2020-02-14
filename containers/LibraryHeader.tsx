@@ -1,11 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Button, Icon } from 'native-base';
 
-import { addPiece } from '../actions';
 import AppHeader from '../components/AppHeader';
 
-const LibraryHeader = ({ addPiece, goBack, goToEditPiece }) => {
+const LibraryHeader = ({ goBack, goToEditPiece }) => {
   return (
     <AppHeader
       left={
@@ -23,4 +21,4 @@ const LibraryHeader = ({ addPiece, goBack, goToEditPiece }) => {
   );
 }
 
-export default connect(null, { addPiece })(LibraryHeader);
+export default LibraryHeader;

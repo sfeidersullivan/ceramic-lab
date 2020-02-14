@@ -2,19 +2,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Button, Icon } from 'native-base';
 
-import { upsertPiece } from '../actions';
+import { upsertPiece, resetEditPiece } from '../actions';
 import AppHeader from '../components/AppHeader';
 
-const EditPieceHeader = ({ upsertPiece, goBack, goToLibrary, editPiece }) => {
+const EditPieceHeader = ({ upsertPiece, resetEditPiece, goBack, goToLibrary, editPiece }) => {
   const onAddPiece = () => {
     upsertPiece(editPiece);
     goToLibrary();
   };
+  const onClose = () => {
+    resetEditPiece();
+    goBack();
+  }
 
   return (
     <AppHeader
       left={
-        <Button transparent onPress={goBack}>
+        <Button transparent onPress={onClose}>
           <Icon name='close' style={{ color: 'dimgray' }} />
         </Button>
       }
@@ -32,4 +36,4 @@ const mapStateToProps = state => ({
   editPiece: state.library.editPiece,
 });
 
-export default connect(mapStateToProps, { upsertPiece })(EditPieceHeader);
+export default connect(mapStateToProps, { upsertPiece, resetEditPiece })(EditPieceHeader);

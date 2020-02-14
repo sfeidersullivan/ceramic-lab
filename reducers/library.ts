@@ -1,7 +1,8 @@
 import uuid from 'uuid/v1';
 import {
-  ADD_NEW_PIECE,
   UPSERT_PIECE,
+  SET_PIECE_NAME,
+  RESET_EDIT_PIECE,
 } from '../constants/actionTypes'
 
 const initialState = {
@@ -21,15 +22,16 @@ const initialState = {
 
 interface Action {
   type: string,
+  payload: any,
 };
 
-interface AddNewPieceAction extends Action {
-  payload: {
-    piece: object,
-  }
-};
+// interface AddNewPieceAction extends Action {
+//   payload: {
+//     piece: object,
+//   }
+// };
 
-const library = (state = initialState, action: AddNewPieceAction) => {
+const library = (state = initialState, action: Action) => {
   const { type, payload } = action;
   switch (type) {
     case UPSERT_PIECE:
@@ -52,6 +54,20 @@ const library = (state = initialState, action: AddNewPieceAction) => {
           allIds: existingPiece ?
             state.pieces.allIds :
             [...state.pieces.allIds, updatedId],
+        }
+      });
+    case RESET_EDIT_PIECE:
+      return ({
+        ...state,
+        editPiece: {},
+      });
+    case SET_PIECE_NAME:
+      const { name } = payload;
+      return ({
+        ...state,
+        editPiece: {
+          ...state.editPiece,
+          name,
         }
       });
     default:
